@@ -9,6 +9,10 @@ import { CameraRig } from './CameraRig';
 import { Lights } from './Lights';
 import { NavigationLine } from './NavigationLine';
 import { Heatmap } from './Heatmap';
+import { VehicleMarkers } from './VehicleMarker';
+import { PlatformMarkers } from './PlatformMarker';
+import { AnnotationMarkers } from './AnnotationMarker';
+import { RoadOverlay } from './RoadOverlay';
 import { useSceneStore } from '@/store/useSceneStore';
 
 function Building() {
@@ -61,6 +65,10 @@ function SceneContent() {
       <Building />
       <Ground />
       <OutdoorGround />
+      <RoadOverlay baseY={-3.9} />
+      <VehicleMarkers baseY={-3.9} />
+      <PlatformMarkers baseY={-3.9} />
+      <AnnotationMarkers baseY={-3.9} />
       <NavigationLine />
       <Heatmap />
       <EffectComposer>

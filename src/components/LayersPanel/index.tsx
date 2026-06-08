@@ -10,6 +10,10 @@ import {
   Zap,
   Info,
   Wallet,
+  Car,
+  Truck,
+  MapPin,
+  Route,
 } from 'lucide-react';
 import { useSceneStore } from '@/store/useSceneStore';
 
@@ -31,6 +35,10 @@ const layers: LayerItem[] = [
   { key: 'electric', label: '电力设施', icon: Zap, color: '#f97316' },
   { key: 'services', label: '服务设施', icon: Info, color: '#ec4899' },
   { key: 'atm', label: 'ATM机', icon: Wallet, color: '#14b8a6' },
+  { key: 'roads', label: '道路网络', icon: Route, color: '#64748b' },
+  { key: 'vehicles', label: '车辆', icon: Car, color: '#3b82f6' },
+  { key: 'platforms', label: '装卸月台', icon: Truck, color: '#f97316' },
+  { key: 'annotations', label: '区域标注', icon: MapPin, color: '#a855f7' },
 ];
 
 export function LayersPanel() {

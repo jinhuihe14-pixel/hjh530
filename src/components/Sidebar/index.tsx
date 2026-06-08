@@ -9,6 +9,10 @@ import {
   ChevronLeft,
   ChevronRight,
   Search,
+  Car,
+  TrendingUp,
+  Truck,
+  MapPin,
 } from 'lucide-react';
 import { useSceneStore } from '@/store/useSceneStore';
 import type { ActivePanel } from '@/types';
@@ -24,8 +28,12 @@ const items: SidebarItem[] = [
   { id: 'search', icon: Search, label: '搜索' },
   { id: 'nav', icon: Navigation, label: '智能导航', color: '#00D4FF' },
   { id: 'shops', icon: Store, label: '业态铺位', color: '#f59e0b' },
+  { id: 'vehicles', icon: Car, label: '车辆管理', color: '#3b82f6' },
+  { id: 'traffic', icon: TrendingUp, label: '车流统计', color: '#06b6d4' },
+  { id: 'platforms', icon: Truck, label: '月台管理', color: '#f97316' },
   { id: 'heatmap', icon: Thermometer, label: '人流热力', color: '#ef4444' },
   { id: 'patrol', icon: Shield, label: '设施巡检', color: '#22c55e' },
+  { id: 'annotations', icon: MapPin, label: '区域标注', color: '#a855f7' },
   { id: 'layers', icon: Layers, label: '图层管理' },
   { id: 'none', icon: Settings, label: '设置' },
 ];
@@ -50,7 +58,7 @@ export function Sidebar() {
                 <Map className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div className="text-white font-bold text-sm">智慧商管</div>
+                <div className="text-white font-bold text-sm">智慧园区</div>
                 <div className="text-slate-500 text-xs">3D可视化平台</div>
               </div>
             </div>

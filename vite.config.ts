@@ -5,6 +5,14 @@ import { traeBadgePlugin } from 'vite-plugin-trae-solo-badge';
 
 // https://vite.dev/config/
 export default defineConfig({
+  server: {
+    port: 10530,
+    host: '127.0.0.1',
+  },
+  preview: {
+    port: 10530,
+    host: '127.0.0.1',
+  },
   build: {
     sourcemap: 'hidden',
   },

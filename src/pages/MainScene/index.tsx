@@ -10,6 +10,10 @@ import { ShopDetailPanel } from '@/components/ShopDetailPanel';
 import { HeatmapControlPanel } from '@/components/HeatmapControlPanel';
 import { PatrolPanel } from '@/components/PatrolPanel';
 import { LayersPanel } from '@/components/LayersPanel';
+import { VehiclePanel } from '@/components/VehiclePanel';
+import { TrafficPanel } from '@/components/TrafficPanel';
+import { PlatformPanel } from '@/components/PlatformPanel';
+import { AnnotationPanel } from '@/components/AnnotationPanel';
 import { useSceneStore } from '@/store/useSceneStore';
 
 export default function MainScene() {
@@ -48,8 +52,12 @@ export default function MainScene() {
 
       {activePanel === 'nav' && <NavPanel />}
       {activePanel === 'shops' && <ShopPanel />}
+      {activePanel === 'vehicles' && <VehiclePanel />}
+      {activePanel === 'traffic' && <TrafficPanel />}
+      {activePanel === 'platforms' && <PlatformPanel />}
       {activePanel === 'heatmap' && <HeatmapControlPanel />}
       {activePanel === 'patrol' && <PatrolPanel />}
+      {activePanel === 'annotations' && <AnnotationPanel />}
       {activePanel === 'layers' && <LayersPanel />}
 
       <ShopDetailPanel />

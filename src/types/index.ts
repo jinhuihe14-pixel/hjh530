@@ -121,4 +121,123 @@ export interface PatrolCheck {
   notes?: string;
 }
 
-export type ActivePanel = 'none' | 'nav' | 'shops' | 'heatmap' | 'patrol' | 'layers' | 'search';
+export type ActivePanel =
+  | 'none'
+  | 'nav'
+  | 'shops'
+  | 'heatmap'
+  | 'patrol'
+  | 'layers'
+  | 'search'
+  | 'vehicles'
+  | 'traffic'
+  | 'platforms'
+  | 'annotations';
+
+export type VehicleType = 'sedan' | 'suv' | 'truck' | 'van' | 'bus' | 'motorcycle';
+export type VehicleStatus = 'inside' | 'outside' | 'restricted';
+export type VehiclePermitType = 'permanent' | 'temporary' | 'visitor';
+
+export interface Vehicle {
+  id: string;
+  plateNumber: string;
+  type: VehicleType;
+  ownerName: string;
+  ownerPhone?: string;
+  permitType: VehiclePermitType;
+  status: VehicleStatus;
+  color?: string;
+  brand?: string;
+  enterTime?: string;
+  exitTime?: string;
+  validFrom?: string;
+  validTo?: string;
+  permittedGates: string[];
+  position?: { x: number; z: number };
+  notes?: string;
+  createdAt: string;
+}
+
+export interface Gate {
+  id: string;
+  name: string;
+  type: 'entrance' | 'exit' | 'both';
+  position: { x: number; z: number };
+  status: 'open' | 'closed' | 'fault';
+}
+
+export interface TrafficRecord {
+  id: string;
+  plateNumber: string;
+  vehicleType: VehicleType;
+  gateId: string;
+  gateName: string;
+  direction: 'in' | 'out';
+  timestamp: string;
+  date: string;
+  hour: number;
+}
+
+export interface TrafficStats {
+  date: string;
+  totalIn: number;
+  totalOut: number;
+  peakHourIn: number;
+  peakHourOut: number;
+  byType: Record<VehicleType, number>;
+  hourly: { hour: number; in: number; out: number }[];
+}
+
+export interface RoadSegment {
+  id: string;
+  name: string;
+  startPoint: { x: number; z: number };
+  endPoint: { x: number; z: number };
+  length: number;
+  lanes: number;
+  currentSpeed: number;
+  congestionLevel: 'low' | 'medium' | 'high';
+  vehicleCount: number;
+}
+
+export type PlatformStatus = 'idle' | 'occupied' | 'reserved' | 'maintenance' | 'overtime';
+
+export interface Platform {
+  id: string;
+  name: string;
+  type: 'loading' | 'unloading' | 'both';
+  position: { x: number; z: number };
+  status: PlatformStatus;
+  currentVehicle?: string;
+  currentPlateNumber?: string;
+  reservedBy?: string;
+  reservedFrom?: string;
+  reservedTo?: string;
+  occupiedSince?: string;
+  maxDuration: number;
+  remainingTime?: number;
+  notes?: string;
+}
+
+export type AnnotationCategory = 'illegal_parking' | 'road_damage' | 'obstacle' | 'garbage' | 'facility_damage' | 'other';
+export type AnnotationStatus = 'open' | 'processing' | 'resolved';
+export type AnnotationPriority = 'low' | 'medium' | 'high' | 'urgent';
+
+export interface Annotation {
+  id: string;
+  category: AnnotationCategory;
+  title: string;
+  description: string;
+  status: AnnotationStatus;
+  priority: AnnotationPriority;
+  position: { x: number; z: number };
+  floorId?: string;
+  reporter: string;
+  reporterPhone?: string;
+  createdAt: string;
+  updatedAt: string;
+  resolvedAt?: string;
+  assignee?: string;
+  images?: string[];
+  tags?: string[];
+}

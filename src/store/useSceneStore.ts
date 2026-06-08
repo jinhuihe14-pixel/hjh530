@@ -28,7 +28,7 @@ interface SceneState {
   zoomOut: () => void;
 }
 
-const defaultLayers = ['shops', 'escalators', 'elevators', 'toilets', 'exits'];
+const defaultLayers = ['shops', 'escalators', 'elevators', 'toilets', 'exits', 'roads', 'vehicles', 'platforms', 'annotations'];
 
 export const useSceneStore = create<SceneState>((set, get) => ({
   currentFloor: 'f1',
